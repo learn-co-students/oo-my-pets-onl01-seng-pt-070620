@@ -17,9 +17,11 @@ class Owner
   end
 
   def buy_cat(catsname)
-    newcat = Cat.all.find { |cat| cat.name == catsname && cat.owner != self }
-    binding.pry
-    newcat.owner = self
+    Cat.new(catsname, self)
+  end
+
+  def feed_cats
+    cats.each { |cat| cat.mood = 'happy' }
   end
 
   def cats
@@ -31,6 +33,26 @@ class Owner
   def dogs
     Dog.all.find_all do |dogs|
       dogs.owner == self
+    end
+  end
+
+  def buy_dog(dogsname)
+    Dog.new(dogsname, self)
+  end
+
+  def walk_dogs
+    dogs.each { |dog| dog.mood = 'happy' }
+  end
+
+  def list_pets
+    "I have #{dogs.count} dog(s), and #{cats.count} cat(s)."
+  end
+
+  def sell_pets
+    allpets = dogs + cats
+    allpets.each do |animal|
+      animal.mood = 'nervous'
+      animal.owner = nil
     end
   end
 
