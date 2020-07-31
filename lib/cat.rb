@@ -6,7 +6,7 @@ class Cat
   
   @@all = []
   
-  def intialize(name, owner)
+  def initialize(name, owner)
     @name = name
     @owner = owner
     @mood = "nervous"
@@ -18,9 +18,8 @@ class Cat
     @@all
   end
   
-  def owner=(owner)
-    @owner = Owner.name  
-    owner.buy_cat(self) unless owner.cats.include?(self)
-  end
+  
+  
+  
 
 end
