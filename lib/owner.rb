@@ -35,10 +35,20 @@ class Owner
   def cats
     @cats  
   end
+  
+  def dogs
+    @dogs
+  end
 
   def buy_cat(cat)
       @cats << cats
       cat.owner = self unless cat.owner == self
   end
+  
+  def buy_dog(dog)
+    @dogs << dog  
+    dog.owner = self unless dog.owner == self
+  end
+  
 
 end
