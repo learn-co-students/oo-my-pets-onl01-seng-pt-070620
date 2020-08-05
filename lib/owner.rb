@@ -1,11 +1,15 @@
-class Owner
+require 'pry'
 
+class Owner
+  attr_accessor :cat, :dog
+  
   @@all = []
   
   def initialize(name)
     @name = name
     @species = "human"
-    @@all << self 
+    @@all << self
+    @cat = cat
   end
   
   def name
@@ -29,7 +33,11 @@ class Owner
   end
   
   def self.reset_all
-    @@all = []
+    @@all.clear
+  end
+  
+  def cats 
+    
   end
 
 end
