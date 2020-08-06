@@ -3,9 +3,9 @@ class Owner
 
 attr_reader  :name, :species
 @@all = []
-  
+
+
   def initialize(name)
-    #binding.pry
     @name = name
     @species = "human"
     @@all << self
@@ -24,11 +24,23 @@ attr_reader  :name, :species
   end
   
   def self.reset_all
-  #binding.pry  
+    self.all.clear
+  end
+  
+  def cats 
+    Cat.all.select {|c| c.owner ==self}
   end
 
-
-
-
-
+  def dogs 
+    Dog.all.select {|d| d.owner == self}
+  end
+  
+  def buy_cat(cat)
+   Cat.new(cat,self) 
+  end
+  
+  def buy_dog(dog)
+    Dog.new(dog,self)
+  end
+  
 end
