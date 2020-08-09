@@ -1,3 +1,5 @@
+require "pry"
+
 class Owner
  attr_reader :species, :name
  attr_accessor :cat
@@ -24,6 +26,11 @@ class Owner
 
     def self.reset_all
       @@all.clear
+    end
+
+    def cats
+      self.cat.each{|total| total.lenght}
+      binding.pry
     end
 
 end
