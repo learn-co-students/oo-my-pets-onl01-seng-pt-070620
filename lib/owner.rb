@@ -28,7 +28,7 @@ class Owner
      
   end 
   def cats 
-     
+     Cats.all
   end
 
   # code goes here
